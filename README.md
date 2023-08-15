@@ -1,6 +1,10 @@
 # Google Message Rest API
 
 ### How to use
+- npm i
+- node server.js
+
+### Example
 
 - Get session
 
@@ -56,5 +60,3 @@ client.on('authenticated', async (service) => {
 ```
 
 **Note**: `sendMessage` takes first arg as number with `countryCode + Number` second arg as TextMessage
-
-- Examples are given [here](https://github.com/ortod0x/google-messages-client/tree/main/examples).
