@@ -16,8 +16,7 @@ client.on('qr-code', (base64Image) => {
     // your code
 })
 
-client.on('authenticated', async (service) => {
-    const inbox = service.getInbox()
+client.on('authenticated', async () => {
     const credentials = await client.getCredentials()
     fs.writeFileSync('credentials.json', JSON.stringify(credentials, null, '\t'))
     await client.quit()
