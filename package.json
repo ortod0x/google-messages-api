@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "google-messages-client": "github:ortod0x/google-messages-client",
+    "socket.io": "2.3.0"
+  }
+}
