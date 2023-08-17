@@ -17,25 +17,23 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
-// Send message (Still Error)
-// app.post('/send-message', async (req, res) => {
-//     try {
-//         const credentials = MessagesClient.loadCredentialFile('credentials.json')
-//         const clients = new MessagesClient({ credentials })
+// Send message
+app.post('/send-message', async (req, res) => {
+    try {
+        const credentials = MessagesClient.loadCredentialFile('credentials.json')
+        const clients = new MessagesClient({ credentials })
 
-//         const number = req.body.number;
-//         const message = req.body.message;
+        const number = req.body.number;
+        const message = req.body.message;
 
-//         clients.on('authenticated', async (service) => {
-//             const send = await service.sendMessage("+"+number, message);
-//             // await clients.quit().then(res.status(200).json({success: true, message: 'sent!'}));
-//             console.log(req.body)
-//             await res.status(200).json({success: true, message: send});
-//         });
-//     } catch (error){
-//         console.log(error);
-//     }
-// });
+        clients.on('authenticated', async (service) => {
+            const send = await service.sendMessage(number, message);
+            await res.status(200).json({success: true, message: 'sent!'});
+        });
+    } catch (error){
+        console.log(error);
+    }
+});
 
 // Read message
 app.get('/get-message', async (req, res) => {
